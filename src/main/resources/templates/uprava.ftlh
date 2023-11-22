@@ -1,6 +1,7 @@
 [#ftl]
 [@c.page]
     <div class="detail">
+
         [@form.form action="/nova" method="post" class="vizitka" bind="vizitka" novalidate=""]
             [@form.input name="celeJmeno" label="Jméno a příjmení *" maxlength="100" required="required" /]
             [@form.input name="firma" label="Firma *" maxlength="100" required="required" /]
@@ -11,7 +12,9 @@
             [@form.input name="telefon" label="Telefon" maxlength="20" type="tel" /]
             [@form.input name="web" label="Web" maxlength="100" type="url" /]
             <div class="form-controls">
-                <button type="submit">Odeslat</button>
+                <form method="post" action="/uprava/${id}">
+                    <button type="submit">Upravit</button>
+                </form>
             </div>
         [/@form.form]
         [@c.back /]

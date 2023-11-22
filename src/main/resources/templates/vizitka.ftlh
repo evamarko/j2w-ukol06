@@ -2,23 +2,36 @@
 [@c.page]
     <div class="detail">
         <div class="vizitka">
-            <div class="jmeno">Dita (Přikrylová) Formánková</div>
-            <div class="firma">Czechitas z. s.</div>
+            <form method="post" action="/smazat">
+                <input type="hidden" name="id" value="${id}"/>
+                <button class="button" type="submit">Smazat</button>
+            </form>
+            <form method="get" action="/uprava/${id}">
+                <button class="button" type="submit">Upravit</button>
+            </form>
+            <div class="jmeno">${vizitka.celeJmeno}</div>
+            <div class="firma">${vizitka.firma}</div>
             <div class="udaje">
                 <div class="adresa">
-                    <div>Václavské náměstí 837/11</div>
-                    <div><span>11000</span> <span>Praha 1</span></div>
+                    <div>${vizitka.ulice}</div>
+                    <div><span>${vizitka.psc}</span> <span>${vizitka.obec}</span></div>
                 </div>
                 <div class="kontakty">
-                    <div><i class="las la-at"></i> <span>dita@czechitas.cs</span></div>
-                    <div><i class="las la-phone-alt"></i> <span>+420 800123456</span></div>
-                    <div><i class="las la-globe"></i> <span>www.czechitas.cz</span></div>
+                    [#if vizitka.email??]
+                    <div><i class="las la-at"></i> <span>${vizitka.email}</span></div>
+                    [/#if]
+                    [#if vizitka.telefon??]
+                    <div><i class="las la-phone-alt"></i> <span>${vizitka.telefon}</span></div>
+                    [/#if]
+                     [#if vizitka.web??]
+                    <div><i class="las la-globe"></i> <span>${vizitka.web}</span></div>
+                     [/#if]
                 </div>
             </div>
         </div>
 
         <div class="mapa">
-            <iframe style="border:none" src="https://frame.mapy.cz/?q=${'Václavské náměstí 837/11, Praha'?url}" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe style="border:none" src="https://frame.mapy.cz/?q=${vizitka.getCelaAdresa()?url}" width="100%" height="100%" frameborder="0"></iframe>
         </div>
 
         [@c.back /]
