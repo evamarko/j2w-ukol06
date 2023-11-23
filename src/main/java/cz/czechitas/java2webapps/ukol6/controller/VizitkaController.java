@@ -17,6 +17,7 @@ import java.util.Optional;
 public class VizitkaController {
 
     private final VizitkaRepository vizitkaRepository;
+
     public VizitkaController(VizitkaRepository vizitkaRepository) {
         this.vizitkaRepository = vizitkaRepository;
     }
@@ -59,7 +60,7 @@ public class VizitkaController {
         return "redirect:/";
     }
 
-    @PostMapping ("/smazat")
+    @PostMapping("/smazat")
     public String smazat(Integer id) {
         vizitkaRepository.deleteById(id);
         return "redirect:/";

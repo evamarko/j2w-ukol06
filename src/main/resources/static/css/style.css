@@ -136,3 +136,8 @@ input {
 .error {
     color: red;
 }
+
+.buttons {
+    display: flex;
+    gap: 5px;
+}

@@ -18,24 +18,24 @@ public class Vizitka {
     private Integer id;
 
     @Length(max = 100)
-    @NotBlank (message = "Zadejte jméno a příjmeni")
+    @NotBlank(message = "Zadejte jméno a příjmeni")
     private String celeJmeno;
 
     @Length(max = 100)
-    @NotBlank (message = "Zadejte název firmy")
+    @NotBlank(message = "Zadejte název firmy")
     private String firma;
 
     @Length(max = 100)
-    @NotBlank (message = "Zadejte název ulice")
+    @NotBlank(message = "Zadejte název ulice")
     private String ulice;
 
     @Length(max = 100)
-    @NotBlank (message = "Zadejte název obce")
+    @NotBlank(message = "Zadejte název obce")
     private String obec;
 
     @Length(max = 5)
     @Pattern(regexp = "\\d{5}")
-    @NotBlank (message = "Zadejte PSČ")
+    @NotBlank(message = "Zadejte PSČ")
     private String psc;
 
     @Length(max = 100)
